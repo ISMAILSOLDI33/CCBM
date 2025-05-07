@@ -1,4 +1,4 @@
-*/* General Styling */
+/* General Styling */
 
 body{
     font-family: Arial, sans-serif;
@@ -57,11 +57,21 @@ body{
     background-color: yellow;
     transition: width 0.3s ease;
 }
-
-/* Show yellow bar fully when hovering */
-.horizontal-nav a:hover::after {
-    width: 100%;
+.horizontal-nav ul li.active a::after {
+    width: 80%; /* Étend le soulignement pour indiquer l'élément actif */
+    bottom: -1px; /* Garde la même distance que lors du survol */
 }
+
+.horizontal-nav ul li a:hover::after {
+    width: 100%; /* Affiche le soulignement complet au survol */
+}
+
+.horizontal-nav ul li a:hover + .active {
+    text-decoration: none; /* Supprime toute décoration supplémentaire */
+    visibility: hidden; /* Cache l'état actif temporairement */
+}
+
+
 
 /* Welcome Message */
 .welcome-message {
@@ -122,7 +132,7 @@ body{
 
 
 .card-list .card-item .card-link:hover {
-    border-color: #ffffff;
+    border-color: yellow;
 }
 
 .card-list .card-link .card-image {
@@ -149,6 +159,18 @@ body{
     font-weight: 600;
 }
 
+/* zoom effect :*/
+
+
+.card-item {
+  transition: transform 0.3s ease; /* Smooth zoom transition */
+  cursor: pointer; /* Indicates interactivity */
+}
+
+.card-item:hover {
+  transform: scale(1.1); /* Zooms in by 10% on hover */
+  z-index: 10; /* Ensures the zoomed card is above others */
+}
 
 /* section-2 styling */
 .section-2 {
@@ -233,7 +255,7 @@ body{
 
 .main2 img{
     height: auto;
-    width: 350px;
+    width: 450px;
     margin-left: 18px;
 }
 
